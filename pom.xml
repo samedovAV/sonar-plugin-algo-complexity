@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sonarsource.plugins.example</groupId>
-  <artifactId>sonar-example-plugin</artifactId>
+  <artifactId>sonar-plugin-algo-complexity</artifactId>
   <packaging>sonar-plugin</packaging>
   <version>10.0.0</version>
 

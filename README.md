@@ -10,15 +10,37 @@ Back-end
 
 Todo...
 
+### Run SonarQube Server
+
+```
+docker rm -f sonarqube 
+
+docker run -d --name sonarqube \
+    -p 9000:9000 \
+    -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \
+    -v "$(pwd)/plugins:/opt/sonarqube/extensions/plugins" \
+    sonarqube:latest
+    
+# Or just restart
+
+docker restart sonarqube
+```
+
+Open http://localhost:9000
+
+Check Logs `docker logs -f sonarqube`
+
 ### Building
 
 To build the plugin JAR file, call:
 
 ```
 mvn clean package
+
+cp target/sonar-plugin-algo-complexity-VERSION ./plugins/
 ```
 
-The JAR will be deployed to `target/sonar-example-plugin-VERSION.jar`. Copy this to your SonarQube Server's `extensions/plugins/` directory, and restart the server.
+The JAR will be deployed to `target/sonar-plugin-algo-complexity-VERSION.jar`. Copy this to your SonarQube Server's `extensions/plugins/` directory, and restart the server.
 
 Front-end
 ---------
